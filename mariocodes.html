@@ -2741,7 +2741,7 @@ function colorized_html_for_code(code) {
 	if ( !test_code_rules(code) ) {
 		rh = rh + "INVALID CODE<BR>";
 	} else {
-		rh = rh + "<input type='number' style='block' value='0' min='0' size="1">";
+		rh = rh + "<input type='number' value='0' min='0' size="1">";
 	}
 
 	rh = rh + codearray.reduce( (total, currentValue) => {
