@@ -2741,7 +2741,7 @@ function colorized_html_for_code(code) {
 	if ( !test_code_rules(code) ) {
 		rh = rh + "INVALID CODE<BR>";
 	} else {
-		rh = rh + "<input type='checkbox' style='block' value='"+code+"'>";
+		rh = rh + "<input type='number' style='block' value='0' min='0'>";
 	}
 
 	rh = rh + codearray.reduce( (total, currentValue) => {
@@ -2848,7 +2848,7 @@ function write_unidentified_list() {
 }
 
 function check_valid_code_checkboxes() {
-	for ( let thischeck of document.querySelectorAll("input[type=checkbox]") ) {
+	for ( let thischeck of document.querySelectorAll("input[type=number]") ) {
 		if ( database_data['codeindex'][thischeck.value] || database_data['idkindex'][thischeck.value] ) {
 			thischeck.checked = true;
 		}
@@ -2856,14 +2856,14 @@ function check_valid_code_checkboxes() {
 }
 
 function clear_checkboxes() {
-	for ( let thischeck of document.querySelectorAll("input[type=checkbox]") ) {
+	for ( let thischeck of document.querySelectorAll("input[type=number]") ) {
 		thischeck.checked = false;
 	}
 }
 
 function create_codelist_from_checkboxes() {
 	var retval = [];
-	for ( let thischeck of document.querySelectorAll("input[type=checkbox]") ) {
+	for ( let thischeck of document.querySelectorAll("input[type=number]") ) {
 		if ( thischeck.checked ) {
 			retval.push(thischeck.value);
 		}
